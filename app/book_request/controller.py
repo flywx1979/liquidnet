@@ -26,8 +26,7 @@ class BookRequestResource(Resource):
 
 @api.route("/<int:requestId>")
 @api.param("requestId", "User book request ID")
-class BookRequestIdResource(Resource):
-    @responds(schema=BookRequestSchema)
+
     def get(self, requestId: int) -> Response:
         if not request_id:
            return jsonify(dict(status="success", data=BookRequestService.get_all()))
